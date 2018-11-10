@@ -65,8 +65,9 @@
         }
 
         .swiper-slide .main-img {
+            width: 4.79rem;
+            height: 8.54rem;
             margin: 0px auto;
-            width: 80%;
             display: block;
             border: 0.14rem solid #fff;
         }
@@ -100,36 +101,35 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代》</div>
+                <div class="theme-name">《橙红时代1》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代》</div>
+                <div class="theme-name">《橙红时代2》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代》</div>
+                <div class="theme-name">《橙红时代3》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代》</div>
+                <div class="theme-name">《橙红时代4》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代》</div>
+                <div class="theme-name">《橙红时代5》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代》</div>
+                <div class="theme-name">《橙红时代6》</div>
             </div>
         </div>
     </div>
     <div class="swiper-pagination" id="pagination"></div>
-    <div id="footer" class="invite_btn">立即邀请</div>
+    <div id="inviteBtn" class="invite_btn">立即邀请</div>
     <script src="./js/swiper.min.js"></script>
 
     <script>
-
         var mySwiper = new Swiper(".swiper-container", {
             slidesPerView: "auto",
             centeredSlides: !0,
@@ -152,6 +152,10 @@
             }
         });
 
+
+        document.getElementById("inviteBtn").addEventListener("click", function () {
+            console.log(document.querySelector(".swiper-slide-active .theme-name").innerHTML);
+        })
     </script>
 </body>
 

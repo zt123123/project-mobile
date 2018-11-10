@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择邀请模板</title>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,//设备宽度
+                rem = 100, //1rem代表100px
+                desW = 750, //设计稿宽度
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= desW) {
+                        docEl.style.fontSize = rem + "px";
+                    } else {
+                        docEl.style.fontSize = rem * (clientWidth / desW) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="./css/swiper.min.css">
+
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: rgba(235, 235, 235, 1) 0% 0% / 100% 100%;
+            height: 100%;
+        }
+
+        #header img {
+            width: 100%;
+        }
+
+        .swiper-container {
+            width: 100%;
+            perspective: 1200px;
+            -webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+        }
+
+        .swiper-wrapper {
+            margin-top: 0.42rem;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            width: 80%;
+            transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+        }
+
+        .swiper-slide .main-img {
+            margin: 0px auto;
+            width: 80%;
+            display: block;
+            border: 0.14rem solid #fff;
+        }
+
+        .invite_btn {
+            margin: 0 auto;
+            text-align: center;
+            width: 3.61rem;
+            height: 0.90rem;
+            line-height: 0.90rem;
+            background: rgba(248, 100, 66, 1);
+            border-radius: 0.45rem;
+
+            font-size: 0.31rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .theme-name {
+            margin-top: 0.23rem;
+            margin-bottom: 0.69rem;
+            font-size: 0.29rem;
+            font-weight: 400;
+            color: rgba(41, 41, 41, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+            <div class="swiper-slide">
+                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+            <div class="swiper-slide">
+                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+            <div class="swiper-slide">
+                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+            <div class="swiper-slide">
+                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+            <div class="swiper-slide">
+                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination" id="pagination"></div>
+    <div id="footer" class="invite_btn">立即邀请</div>
+    <script src="./js/swiper.min.js"></script>
+
+    <script>
+
+        var mySwiper = new Swiper(".swiper-container", {
+            slidesPerView: "auto",
+            centeredSlides: !0,
+            watchSlidesProgress: !0,
+            pagination: false,
+            onProgress: function (a) {
+                var b, c, d;
+                for (b = 0; b < a.slides.length; b++)
+                    c = a.slides[b],
+                        d = c.progress,
+                        scale = 1 - Math.min(Math.abs(.2 * d), 1),
+                        es = c.style,
+                        es.opacity = 1 - Math.min(Math.abs(d / 2), 1),
+                        es.webkitTransform = es.MsTransform = es.msTransform = es.MozTransform = es.OTransform = es.transform = "translate3d(0px,0," + -Math.abs(150 * d) + "px)"
+            },
+            onSetTransition: function (a, b) {
+                for (var c = 0; c < a.slides.length; c++)
+                    es = a.slides[c].style,
+                        es.webkitTransitionDuration = es.MsTransitionDuration = es.msTransitionDuration = es.MozTransitionDuration = es.OTransitionDuration = es.transitionDuration = b + "ms"
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -128,6 +128,7 @@
     <div class="swiper-pagination" id="pagination"></div>
     <div id="inviteBtn" class="invite_btn">立即邀请</div>
     <script src="./js/swiper.min.js"></script>
+    <script src="js/axios.min.js"></script>
 
     <script>
         var mySwiper = new Swiper(".swiper-container", {
@@ -152,10 +153,28 @@
             }
         });
 
+            var inviteBtn=document.getElementById("inviteBtn");
 
-        document.getElementById("inviteBtn").addEventListener("click", function () {
-            console.log(document.querySelector(".swiper-slide-active .theme-name").innerHTML);
-        })
+            inviteBtn.addEventListener("click",function () {
+                if(window.android&& typeof(window.android.share)=="function"){
+                    var imgUrl=document.querySelector(".swiper-slide-active .main-img").attribute("src");
+                    window.android.share(imgUrl);
+                }else{
+                    alert("没有android.share方法");
+                }
+            })
+
+            axios.get('/user', {
+                params: {
+                  ID: 12345
+                }
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
     </script>
 </body>
 

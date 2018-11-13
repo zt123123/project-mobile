@@ -100,29 +100,29 @@
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
+                <img class="main-img" src="http://toutiaoimage.bj.bcebos.com/shareposter/qmtt/shareposter1.jpg">
+                <div class="theme-name">《橙红时代》</div>
+            </div>
+<!--             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代1》</div>
+                <div class="theme-name">《橙红时代》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代2》</div>
+                <div class="theme-name">《橙红时代》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代3》</div>
+                <div class="theme-name">《橙红时代》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代4》</div>
+                <div class="theme-name">《橙红时代》</div>
             </div>
             <div class="swiper-slide">
                 <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代5》</div>
-            </div>
-            <div class="swiper-slide">
-                <img class="main-img" src="./img/webwxgetmsgimg.jpg">
-                <div class="theme-name">《橙红时代6》</div>
-            </div>
+                <div class="theme-name">《橙红时代》</div>
+            </div> -->
         </div>
     </div>
     <div class="swiper-pagination" id="pagination"></div>
@@ -157,24 +157,28 @@
 
             inviteBtn.addEventListener("click",function () {
                 if(window.android&& typeof(window.android.share)=="function"){
-                    var imgUrl=document.querySelector(".swiper-slide-active .main-img").attribute("src");
+                    var imgUrl=document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
+                    console.log(imgUrl)
                     window.android.share(imgUrl);
                 }else{
                     alert("没有android.share方法");
                 }
             })
 
-            axios.get('/user', {
-                params: {
-                  ID: 12345
-                }
-              })
-              .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
+
+            
+
+            // axios.get('/user', {
+            //     params: {
+            //       ID: 12345
+            //     }
+            //   })
+            //   .then(function (response) {
+            //     console.log(response);
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
     </script>
 </body>
 

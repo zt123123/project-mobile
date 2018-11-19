@@ -163,8 +163,19 @@
     }
 
     .container {
+    	position: relative;
         overflow: hidden;
         text-align: center;
+    }
+    .invite-plus{
+    	position: absolute;	
+    	top: 0;	
+    	right: 0;	
+    	width: 1.8rem;
+    	height: 2rem;
+    	background: url("./img/invite.jpg") center no-repeat;
+    	-webkit-background-size: contain;
+    	background-size: contain;
     }
 
     .container div {
@@ -463,6 +474,7 @@
 <body>
     <div class="container">
         <!-- <div class="btn-back" id="btnBack"></div> -->
+        <div class="invite-plus" onclick="window.location.href='http://fanli.huanxifin.com/activity/plus_code.html'"></div>
         <div class="invite-tip">
             每邀请1个新用户即可获得
         </div>

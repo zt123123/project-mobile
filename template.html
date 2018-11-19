@@ -213,6 +213,12 @@
     <script src="js/axios.min.js"></script>
 
     <script>
+        var u = navigator.userAgent, app = navigator.appVersion;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        console.log('是否是Android：'+isAndroid);
+        console.log('是否是iOS：'+isiOS);
+
         var mySwiper = new Swiper(".swiper-container", {
             slidesPerView: "auto",
             centeredSlides: !0,
@@ -238,12 +244,23 @@
         var inviteBtn = document.getElementById("inviteBtn");
 
         inviteBtn.addEventListener("click", function () {
-            if (window.android && typeof (window.android.share) == "function") {
-                var imgUrl = document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
-                console.log(imgUrl)
-                window.android.share(imgUrl);
-            } else {
-                alert("没有android.share方法");
+            if(isAndroid){
+                if (window.android && typeof (window.android.share) == "function") {
+                    var imgUrl = document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
+                    console.log(imgUrl)
+                    window.android.share(imgUrl);
+                } else {
+                    alert("没有android.share方法");
+                }
+            }
+            if(isiOS){
+                if (window.share && typeof (window.share) == "function") {
+                    var imgUrl = document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
+                    console.log(imgUrl)
+                    window.share(imgUrl);
+                } else {
+                    alert("没有ios.share方法");
+                }
             }
         })
 

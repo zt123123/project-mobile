@@ -244,9 +244,9 @@
         var inviteBtn = document.getElementById("inviteBtn");
 
         inviteBtn.addEventListener("click", function () {
+            var imgUrl = document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
             if(isAndroid){
                 if (window.android && typeof (window.android.share) == "function") {
-                    var imgUrl = document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
                     console.log(imgUrl)
                     window.android.share(imgUrl);
                 } else {
@@ -254,30 +254,9 @@
                 }
             }
             if(isiOS){
-                if (window.share && typeof (window.share) == "function") {
-                    var imgUrl = document.querySelector(".swiper-slide-active .main-img").getAttribute("src");
-                    console.log(imgUrl)
-                    window.share(imgUrl);
-                } else {
-                    alert("没有ios.share方法");
-                }
+              window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.share && window.webkit.messageHandlers.share.postMessage(imgUrl);
             }
         })
-
-
-
-
-            // axios.get('/user', {
-            //     params: {
-            //       ID: 12345
-            //     }
-            //   })
-            //   .then(function (response) {
-            //     console.log(response);
-            //   })
-            //   .catch(function (error) {
-            //     console.log(error);
-            //   });
     </script>
 </body>
 
